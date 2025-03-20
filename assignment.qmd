@@ -1,0 +1,21 @@
+---
+title: "Assignment"
+bibliography: ref.bib
+---
+
+```{r, echo=F, messages=F, warnings=F}
+source('rscript.R')
+```
+
+
+# Introduction
+
+# Abc
+
+
+According to [@knuth84]
+
+
+# Conclusions
+
+# References
