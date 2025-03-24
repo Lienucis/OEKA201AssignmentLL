@@ -1,0 +1,19 @@
+﻿Model 3: OLS, using observations 1952-1980 (T = 27)
+Missing or incomplete observations dropped: 2
+Dependent variable: price
+
+                coefficient   std. error   t-ratio   p-value
+  ----------------------------------------------------------
+  const         −16289.5       4395.18     −3.706    0.0012  ***
+  Dheavyrain     11634.1       8990.38      1.294    0.2085 
+  temp            1082.95       266.391     4.065    0.0005  ***
+  temp_Dheavy     −756.902      546.064    −1.386    0.1790 
+
+Mean dependent var   1405.800   S.D. dependent var   1027.226
+Sum squared resid    14038659   S.E. of regression   781.2660
+R-squared            0.488295   Adjusted R-squared   0.421550
+F(3, 23)             7.315911   P-value(F)           0.001294
+Log-likelihood      −215.9914   Akaike criterion     439.9829
+Schwarz criterion    445.1662   Hannan-Quinn         441.5242
+
+Excluding the constant, p-value was highest for variable 6 (Dheavyrain)

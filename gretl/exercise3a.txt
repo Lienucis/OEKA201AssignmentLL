@@ -1,0 +1,18 @@
+﻿Model 2: OLS, using observations 1952-1980 (T = 27)
+Missing or incomplete observations dropped: 2
+Dependent variable: price
+
+                coefficient    std. error    t-ratio   p-value 
+  -------------------------------------------------------------
+  const         −15509.0       3379.87       −4.589    0.0001   ***
+  Age               39.2126      14.3490      2.733    0.0121   **
+  WinterRain         2.75098      0.965119    2.850    0.0093   ***
+  temp             930.787      190.557       4.885    6.97e-05 ***
+  HarvestRain       −5.04694      1.61682    −3.122    0.0050   ***
+
+Mean dependent var   1405.800   S.D. dependent var   1027.226
+Sum squared resid     7238994   S.E. of regression   573.6246
+R-squared            0.736141   Adjusted R-squared   0.688166
+F(4, 22)             15.34443   P-value(F)           3.93e-06
+Log-likelihood      −207.0499   Akaike criterion     424.0999
+Schwarz criterion    430.5791   Hannan-Quinn         426.0265
