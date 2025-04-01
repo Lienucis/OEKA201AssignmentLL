@@ -1,7 +1,8 @@
 ---
 title : "Bjørnar's assignment in Gretl"
-#format: html
-format: pdf
+format: 
+  html: default
+  pdf: default
 #format: docx
 author:
   - name: Liena Lesniece
