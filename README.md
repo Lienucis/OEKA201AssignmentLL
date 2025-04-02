@@ -6,9 +6,11 @@
 
 ## Confirmation
 ### Part 1
-JIH, confirmed.
+- JIH, confirmed.
 ### Part 2
-`<Bjørnar will write his confirmed message here> `
+- JIH, confirmed: assignment_gretl.qmd rendered to pdf 
+- Bjørnar will review and approve its content
+
 ### Part 3
 `<Jørn will write his confirmed message here> `
 
