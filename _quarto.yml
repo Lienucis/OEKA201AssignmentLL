@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - assignment_gretl.qmd
+    - assignment_r.qmd
+
+website:
+  title: "OEKA201AssignmentLL"
+  navbar:
+    left:
+      - text: "Index"
+        href: index.qmd
+      - text: "Exercises using Gretl"
+        href: assignment_gretl.qmd
+      - text: "Exercises using R"
+        href: assignment_r.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+  docx:
+    toc: true
+  pdf:
+    toc: true
+    number-sections: true
+  epub:
+    toc: true
+    toc-depth: 3
+
+bibliography: ref.bib

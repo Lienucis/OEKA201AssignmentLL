@@ -1,0 +1,181 @@
+---
+title: "Bjørnar’s Assignment 3"
+author: "Liena Lesniece"
+affiliation: "Høgskolen i Østfold"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    css: styles.css
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+  docx:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+  epub:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    mainfont: Arial
+bibliography: ref.bib
+---
+
+### Abstract
+
+This report stems from an assignment in which I used R and Quarto to analyze wine data. It consists of five different tasks, one of which involves running a regression and analyzing the outcomes. The report contains various models along with their explanations. Everything is now done in R, but it is based on previous work done in GRETL. The purpose is to understand how to perform analysis in R and produce a structured report that can be shared in various formats.
+
+---
+keywords: 
+
+  - R programming 
+  - regression analysis
+  - wine data
+---
+
+### Introduction
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+source("script/estm.R")
+```
+
+In this assignment I have worked with wine data using R and Quarto. The goal is to do the same kind of analysis that was done before in GRETL, but now using R. The report has five parts, each one answering a task from the assignment. These tasks include looking at the data, running a regression, calculation tasks and understanding the results. The report is also made to work in different formats like HTML, Word, PDF and ePub.
+
+## Exercise 1
+
+In this exercise, I opened the wine dataset and explored the variables using descriptive statistics and graphs. The key statistics (mean, median, standard deviation, min, max) and interpretations are based on values from the original GRETL output. Here's a summary:
+
+```{r, echo=FALSE}
+sds
+```
+
+```{r, echo=FALSE}
+cds
+```
+
+
+- **Price**: Highly variable (mean = 1406, SD = 1027), ranging from 495.2 to 4884
+- **WinterRain**: Average of 608 mm with moderate variation
+- **Temperature**: Relatively stable (mean = 16.48°C, SD = 0.66)
+- **HarvestRain**: More variability (mean = 144.8 mm, SD = 73.07)
+- **Age**: Ranges from 3 to 31 years, mean = 16.19
+
+The results show wide variability in weather and prices, with temperature and age being more consistent across vintages.
+
+## Exercise 2
+
+*Model 1*
+$$
+price_i = \beta_0 + \beta_1Age_i + u_i 
+$$
+This is a simple linear regression model using price as the dependent variable and age as the independent variable.
+
+```{r, echo=FALSE}
+summary(mod1)
+```
+
+**Interpretation**:
+- Intercept: 494.28 — base price
+- Age coefficient: 56.32 — price increases by ~56 per year
+- p-value: 0.0179 → significant at 5% level, not at 1%
+
+**Predictions**:
+- Age 3 → ~663.2
+- Age 16.19 → ~1406.1 (close to mean)
+- Age 31 → ~2240.2
+
+**95% prediction interval for 1961 vintage**:
+- Predicted price (Age 22): 1733.32
+- Interval: [-191.5, 3658.2] — wide due to high SE
+
+## Exercise 3
+
+*Model 2*
+$$
+price_i = \beta_0 + \beta_1Age_i + \beta_2WinterRain_i  +\beta_3temp_i + \beta_3HarvestRain_i + u_i 
+$$
+
+This section uses a multiple regression with all variables except for price as predictors.
+
+```{r, echo=FALSE}
+summary(mod2)
+```
+
+**Interpretation**:
+- Age, WinterRain, temp: all positively related to price
+- HarvestRain: negatively related to price
+
+**Comparison**:
+- R² increases from 0.204 (mod1) to 0.736 → better model
+- SE decreases → more accurate predictions
+- Age coefficient drops (56 → 39) → other variables explain variation.
+
+
+## Exercise 4
+
+*Model 3*
+$$
+price_i = \beta_0 + \beta_1Dheavyraint_i + \beta_2tempt_i + \beta_3temp_i · Dheavyrain_i + u_i
+$$
+
+This model includes a dummy variable for heavy harvest rain (>200mm) and its interaction with temperature.
+
+```{r, echo=FALSE}
+summary(mod3)
+```
+
+**Interpretation**:
+
+- Dheavyrain suggests higher base prices (not significant)
+
+- Temperature significantly boosts price
+
+- Interaction is negative → high rain weakens temperature's positive effect
+
+
+## Exercise 5
+
+This section calculates residuals for the 1961 vintage under all three models and compares them.
+
+```{r, echo=FALSE}
+resf[1, ]  # Assuming first row is 1961
+```
+
+**Residuals**:
+
+- Model 1: 3150.6
+
+- Model 2: 1306.0 → best
+
+- Model 3: 2402.3
+
+**Conclusion**: Model 2 gives the most accurate prediction and best overall fit (highest R², lowest SE). It is the preferred model.
+
+
+### Conclusion
+
+This assignment looked at how different elements including age, weather, and harvest rainfall affected the wine pricing. Earlier work done with GRETL was reproduced and expanded upon using Quarto and R.
+
+The first model showed a positive and significant impact of wine age on pricing.Including more variables in the second model raised the accuracy and predictability, as seen by a higher R-squared value. The third model added a dummy variable for high harvest rain, indicating how weather impacts might change based on conditions.
+
+This showed how various model factors influence regression results and how R can be used to present and analyse statistical information in a structured way. The work builds on methods covered in the course literature [@kivedal2023].
+
+```{r, echo=FALSE}
+lines <- readLines("assignment_r.qmd", warn = FALSE)
+text <- paste(lines, collapse = " ")
+words <- unlist(strsplit(text, "\\s+"))
+word_count <- length(words)
+cat("Total words:", word_count)
+```
+
+### Appendix
+**Content of** `estm.R`
+
+```{r, echo=FALSE}
+cat(readLines("script/estm.R"), sep = "\n")
+```
+### References
+
