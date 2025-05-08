@@ -2,47 +2,22 @@
 title: "Bjørnar’s Assignment 3"
 author: "Liena Lesniece"
 affiliation: "Høgskolen i Østfold"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: false
-    css: styles.css
-  pdf:
-    toc: true
-    toc-depth: 3
-    number-sections: false
-  docx:
-    toc: true
-    toc-depth: 3
-    number-sections: false
-  epub:
-    toc: true
-    toc-depth: 3
-    number-sections: false
-    mainfont: Arial
 bibliography: ref.bib
+abstract: "This report stems from an assignment in which I used R and Quarto to analyze wine data. It consists of five different tasks, one of which involves running a regression and analyzing the outcomes. The report contains various models along with their explanations. Everything is now done in R, but it is based on previous work done in GRETL. The purpose is to understand how to perform analysis in R and produce a structured report that can be shared in various formats."
+keywords: "R, programming regression analysis, wine data"
 ---
-
-### Abstract
-
-This report stems from an assignment in which I used R and Quarto to analyze wine data. It consists of five different tasks, one of which involves running a regression and analyzing the outcomes. The report contains various models along with their explanations. Everything is now done in R, but it is based on previous work done in GRETL. The purpose is to understand how to perform analysis in R and produce a structured report that can be shared in various formats.
-
----
-keywords: 
-
-  - R programming 
-  - regression analysis
-  - wine data
----
-
-### Introduction
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 source("script/estm.R")
 ```
 
+
+### Introduction
+
+
+
 In this assignment I have worked with wine data using R and Quarto. The goal is to do the same kind of analysis that was done before in GRETL, but now using R. The report has five parts, each one answering a task from the assignment. These tasks include looking at the data, running a regression, calculation tasks and understanding the results. The report is also made to work in different formats like HTML, Word, PDF and ePub.
+
 
 ## Exercise 1
 
@@ -76,6 +51,7 @@ This is a simple linear regression model using price as the dependent variable a
 ```{r, echo=FALSE}
 summary(mod1)
 ```
+
 
 **Interpretation**:
 - Intercept: 494.28 — base price
@@ -163,19 +139,26 @@ The first model showed a positive and significant impact of wine age on pricing.
 
 This showed how various model factors influence regression results and how R can be used to present and analyse statistical information in a structured way. The work builds on methods covered in the course literature [@kivedal2023].
 
-```{r, echo=FALSE}
-lines <- readLines("assignment_r.qmd", warn = FALSE)
-text <- paste(lines, collapse = " ")
-words <- unlist(strsplit(text, "\\s+"))
-word_count <- length(words)
-cat("Total words:", word_count)
+Number of words in the document:
+
+```{r}
+#| echo=F
+OEKA201AssignmentLL::cword(file_path ='assignment_r.qmd')
 ```
+
 
 ### Appendix
 **Content of** `estm.R`
 
-```{r, echo=FALSE}
-cat(readLines("script/estm.R"), sep = "\n")
+R-code
+```{{r}}
+{{< include script/estm.R >}}
 ```
+
 ### References
+
+
+```{r}
+knitr::knit_exit()
+```
 

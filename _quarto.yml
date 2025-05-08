@@ -19,16 +19,27 @@ website:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
     toc: true
+    toc-depth: 3
+    number-sections: false
+    mainfont: "Monospace"
+    css: styles.css
   docx:
     toc: true
+    toc-depth: 3
+    number-sections: false
   pdf:
     toc: true
-    number-sections: true
+    toc-depth: 3
+    number-sections: false
+    lof: true
+    lot: true
   epub:
     toc: true
     toc-depth: 3
-
+    number-sections: false
+    lof: true
+    lot: true
+    mainfont: "Arial"
 bibliography: ref.bib
+

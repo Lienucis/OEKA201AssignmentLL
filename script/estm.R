@@ -1,13 +1,15 @@
 ## External
+library(OEKA201AssignmentLL)
 library(readr)
 library(broom)
 library(dplyr)
+suppressPackageStartupMessages(library(dplyr))
 
 # Settings
 hlim <- 200
 
 # Read data
-iwine <- read.csv("wine.csv")
+iwine <- wine 
 
 # Clean and prepare dataset
 owine <- iwine %>%
