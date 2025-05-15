@@ -1,10 +1,5 @@
 ---
 title : "Bjørnar's assignment in Gretl"
-<<<<<<< HEAD
-format: html
-#format: pdf
-=======
-#format: docx
 author:
   - name: Liena Lesniece
     affiliations:
@@ -114,7 +109,7 @@ The 95% prediction interval is [−191.53, 3658.17]
 ## Exercise 3 
 *Model 2*
 $$
-price_i = \beta_0 + \beta_1Age_i + \beta_2WinterRain_i  +\beta_3temp_i + \beta_3HarvestRain_i + u_i \\
+price_i = \beta_0 + \beta_1Age_i + \beta_2WinterRain_i  +\beta_3temp_i + \beta_3HarvestRain_i + u_i 
 $$
 
 **a.**
@@ -203,3 +198,5 @@ With an R-squared of 0.736, Model 2 has the strongest explanatory power outside 
 The Model 2's standard error was the lowest of the three explanatory factors, and all four of them—Age, HarvestRain, WinterRain, and temperature—were statistically significant.
 
 In conclusion, Model 2 is the best model for forecasting Bordeaux wine prices when taking into account both the predicted accuracy for the 1961 vintage and the overall model performance.
+
+

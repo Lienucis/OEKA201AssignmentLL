@@ -8,9 +8,9 @@
 ### Part 1
 - JIH, confirmed.
 ### Part 2
-- JIH, confirmed: assignment_gretl.qmd rendered to pdf 
-- Bjørnar will review and approve its content
-
+- JIH, confirmed
 ### Part 3
-`<Jørn will write his confirmed message here> `
+- JIH, confirmed
+
+Note: Before rendering this project on your own computer, you will need to use the "Build" and "Install" options in RStudio.
 

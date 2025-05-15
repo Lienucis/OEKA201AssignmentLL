@@ -16,3 +16,18 @@
 hello <- function() {
   print("Hello, world!")
 }
+
+cword <- function(file_path) {
+  # Read the content of the file
+  text <- tolower(readLines(file_path, warn = FALSE))
+  
+  # Split the text into words
+  words <- unlist(strsplit(text, "\\s+"))
+  
+  # Count the number of words
+  num_words <- length(words)
+  
+  return(num_words)
+}
+
+
